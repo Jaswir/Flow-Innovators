@@ -1,11 +1,9 @@
 from langflow.load import run_flow_from_json
 from langflow.graph.schema import RunOutputs
-from dotenv import load_dotenv
+import streamlit as st  
 import os
 
-# Environment Variables
-load_dotenv()
-
+os.environ["OPENAI_API_KEY"]= st.secrets["OPENAI_API_KEY"]
 
 def getResponseFromLangFlow(question):
     response = run_flow_from_json(
@@ -17,8 +15,8 @@ def getResponseFromLangFlow(question):
     output_text = response[0].outputs[0].results['message'].text
     return output_text
 
-# result = RunOutputs(getResponseFromLangFlow()[0])
-# result = getResponseFromLangFlow()[0].outputs[0].results['message'].text
+# question = "Background Story: : the student failed the exam, 3 times. Student Experieence: I can understand the topics generally but I can't understand the mathematical formulations, my biggest challenges for the course is to understand mathematical formulations"
+# result = getResponseFromLangFlow(question)
 
 # print(type(result))
 # print(result)
