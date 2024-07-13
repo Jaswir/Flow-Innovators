@@ -44,4 +44,4 @@ class HelloHandler(RequestHandler):
     self.write({'message': response})
 
 # This setup will be run only once
-setup_api_handler('/api/hello', HelloHandler)
+setup_api_handler('/api/v1/query', HelloHandler)
