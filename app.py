@@ -13,5 +13,3 @@ if st.button("Get Answer"):
         st.write(answer)
     else:
         st.write("Please enter a question.")
-
-
