@@ -2,10 +2,9 @@ import requests
 import json
 import streamlit as st
 
-customerID = "566695243"
-corpusID = "15"
+customerID = "2333174360"
+corpusID = "4"
 api_key = st.secrets["VECTARA_API_KEY"]
-
 
 # Step 1 Reset Corpus
 def ResetCorpus():
@@ -22,25 +21,22 @@ def ResetCorpus():
 
     print(response.text)
 
-
-# Step 2 Add Transcription Txt to Corpus
-def AddFile():
+# Step 2 Add File to Corpus
+def AddFile(file):
     url = f"https://api.vectara.io/v1/upload?c={customerID}&o={corpusID}"
 
-    payload = {}
-    files = [
-        ("file", ("video_transcription", open("video_transcription.txt", "rb"), "application/txt"))
-    ]
+    files = {
+        'file': (file.name, file, file.type)
+    }
     headers = {
         "customer-id": f"{customerID}",
         "Accept": "application/json",
         "x-api-key": api_key,
     }
 
-    response = requests.request("POST", url, headers=headers, data=payload, files=files)
+    response = requests.request("POST", url, headers=headers, files=files)
 
     print(response.text)
-
 
 # Step 3 Ask Question
 def askQuestion(prompt):
