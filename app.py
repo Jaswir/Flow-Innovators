@@ -20,7 +20,6 @@ from tornado.web import Application, RequestHandler
 from tornado.routing import Rule, PathMatches
 import gc
 import streamlit as st
-import langflow_output
 
 @st.cache_resource()
 def setup_api_handler(uri, handler):
@@ -35,13 +34,7 @@ def setup_api_handler(uri, handler):
 # === Usage ======
 class HelloHandler(RequestHandler):
   def get(self):
-    question = self.get_argument("question", None)
-    if question is None:
-        self.write({'error': 'Please provide a question'})
-        return
-    
-    response = langflow_output.getResponseFromLangFlow(question)
-    self.write({'message': response})
+    self.write({'message': 'hello'})
 
 # This setup will be run only once
-setup_api_handler('/api/v1/query', HelloHandler)
+setup_api_handler('/api/hello', HelloHandler)
