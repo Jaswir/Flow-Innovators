@@ -1,0 +1,1 @@
+privacy policy: https://www.termsfeed.com/live/f6b76e3d-f4cc-4ebc-a624-80db8291272e

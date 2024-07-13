@@ -1,13 +1,17 @@
-from langflow.load import run_flow_from_json
-from dotenv import load_dotenv
+import streamlit as st
+import langflow_output
 
-# Load environment variables from .env file
-load_dotenv()
+st.title("Question and Answer App")
 
-question = input("Enter your question: ")
+st.write("Ask a question and get an answer:")
 
-result = run_flow_from_json(flow="Priority and Depth Agents.json", # You can adjust this to your flow file name
-                            input_value=question,
-                            fallback_to_env_vars=True)
+question = st.text_input("Your question:")
 
-print(result[0].outputs[0].results)
+if st.button("Get Answer"):
+    if question:
+        answer = langflow_output.getResponseFromLangFlow(question)
+        st.write(answer)
+    else:
+        st.write("Please enter a question.")
+
+

@@ -1,2 +1,2 @@
 python-dotenv
-langflow
+streamlit==1.28
