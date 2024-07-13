@@ -34,6 +34,7 @@ def setup_api_handler(uri, handler):
 # === Usage ======
 class HelloHandler(RequestHandler):
   def get(self):
+    print('hi')
     self.write({'message': 'hello'})
 
 # This setup will be run only once
