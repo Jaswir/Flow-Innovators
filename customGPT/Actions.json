@@ -1,54 +1,117 @@
-openapi: 3.1.0
-info:
-  title: Options title
-  description: Description from options
-  version: 6.0.7-beta
-  termsOfService: http://tos.myweb.com
-servers:
-  - url: https://flow-innovators-backend.calmocean-f05a6d4b.westeurope.azurecontainerapps.io
-paths:
-  /query/:
-    post:
-      tags:
-        - default
-      summary: Query LangFlow
-      operationId: Query Tutor Brain
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                question:
-                  type: string
-                  description: The question to query LangFlow
-              example:
-                question: "Backstory: the student failed the exam, 3 times. Student Experience: I can understand the topics generally
-                  but I can't understand the mathematical formulations, my biggest challenges for the course is to
-                  understand mathematical formulations"
-              required:
-                - question
-      responses:
-        "200":
-          description: Successful response
-          content:
-            application/json: {}
-  /addfile_tutorbrain/:
-    post:
-      operationId: Add File to Tutor Brain
-      description: ""
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                file_text:
-                  type: string
-              required:
-                - file_text
-      responses:
-        "200":
-          description: Success
-      tags:
-        - addfile_tutorbrain
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Flow Innovators API",
+    "description": "Flow Innovators API",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://flow-innovators-backend.calmocean-f05a6d4b.westeurope.azurecontainerapps.io"
+    }
+  ],
+  "paths": {
+    "/addfile_tutorbrain/": {
+      "post": {
+        "operationId": "Add File to Tutor Brain",
+        "description": "",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file_text": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "addfile_tutorbrain"
+        ]
+      }
+    },
+    "/get_agent_crew_advice/": {
+      "post": {
+        "operationId": "Gets advice from Agent Crew",
+        "description": "",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "question": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "get_agent_crew_advice"
+        ]
+      }
+    },
+    "/query/": {
+      "post": {
+        "operationId": "Query Tutor Brain",
+        "description": "",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "question": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "tags": [
+          "query"
+        ]
+      }
+    },
+    "/test/": {
+      "get": {
+        "operationId": "test_list",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "test"
+        ]
+      }
+    }
+  }
+}
