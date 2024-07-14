@@ -29,7 +29,7 @@ def AddFile():
 
     payload = {}
     files = [
-        ("file", ("video_transcription", open("video_transcription.txt", "rb"), "application/txt"))
+        ("file", ("course_slides", open("video_transcription.txt", "rb"), "application/txt"))
     ]
     headers = {
         "customer-id": f"{customerID}",
