@@ -13,8 +13,11 @@
   "paths": {
     "/addfile_tutorbrain/": {
       "post": {
-        "operationId": "Add File to Tutor Brain",
+        "operationId": "addfile_tutorbrain_create",
         "description": "",
+        "tags": [
+          "addfile_tutorbrain"
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -34,16 +37,16 @@
           "200": {
             "description": "Success"
           }
-        },
-        "tags": [
-          "addfile_tutorbrain"
-        ]
+        }
       }
     },
     "/get_agent_crew_advice/": {
       "post": {
-        "operationId": "Gets advice from Agent Crew",
+        "operationId": "get_agent_crew_advice_create",
         "description": "",
+        "tags": [
+          "get_agent_crew_advice"
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -51,7 +54,7 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "question": {
+                  "background": {
                     "type": "string"
                   }
                 }
@@ -63,16 +66,16 @@
           "200": {
             "description": "Success"
           }
-        },
-        "tags": [
-          "get_agent_crew_advice"
-        ]
+        }
       }
     },
     "/query/": {
       "post": {
-        "operationId": "Query Tutor Brain",
+        "operationId": "query_create",
         "description": "",
+        "tags": [
+          "query"
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -92,25 +95,21 @@
           "200": {
             "description": "Success"
           }
-        },
-        "tags": [
-          "query"
-        ]
+        }
       }
     },
     "/test/": {
       "get": {
         "operationId": "test_list",
         "description": "",
-        "parameters": [],
+        "tags": [
+          "test"
+        ],
         "responses": {
           "200": {
             "description": ""
           }
-        },
-        "tags": [
-          "test"
-        ]
+        }
       }
     }
   }
