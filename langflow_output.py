@@ -8,17 +8,19 @@ from dotenv import load_dotenv
 
 #Streamlit
 # os.environ["OPENAI_API_KEY"]= st.secrets["OPENAI_API_KEY"]
-# os.environ["VECTARA_CUSTOMER_ID"] = st.secrets["VECTARA_CUSTOMER_ID"]
-# os.environ["VECTARA_CORPUS_ID"] = st.secrets["VECTARA_CORPUS_ID"]
-# os.environ["VECTARA_API_KEY"] = st.secrets["VECTARA_API_KEY"]
-# os.environ["GROQ_API_KEY"]= st.secrets["GROQ_API_KEY"]
+os.environ["VECTARA_CUSTOMER_ID"] = st.secrets["VECTARA_CUSTOMER_ID"]
+os.environ["VECTARA_CORPUS_ID"] = st.secrets["VECTARA_CORPUS_ID"]
+os.environ["VECTARA_API_KEY"] = st.secrets["VECTARA_API_KEY"]
+os.environ["GROQ_API_KEY"]= st.secrets["GROQ_API_KEY"]
+
+
 
 # Custom GPT
-load_dotenv()
-os.environ["VECTARA_CUSTOMER_ID"] = os.environ["VECTARA_CUSTOMER_ID"]
-os.environ["VECTARA_CORPUS_ID"] = os.environ["VECTARA_CORPUS_ID"]
-os.environ["VECTARA_API_KEY"] = os.environ["VECTARA_API_KEY"]
-os.environ["GROQ_API_KEY"]= os.environ["GROQ_API_KEY"]
+# load_dotenv()
+# os.environ["VECTARA_CUSTOMER_ID"] = os.environ["VECTARA_CUSTOMER_ID"]
+# os.environ["VECTARA_CORPUS_ID"] = os.environ["VECTARA_CORPUS_ID"]
+# os.environ["VECTARA_API_KEY"] = os.environ["VECTARA_API_KEY"]
+# os.environ["GROQ_API_KEY"]= os.environ["GROQ_API_KEY"]
 
 flowname = "Document QA Keyless.json"
 
@@ -35,8 +37,8 @@ def getResponseFromLangFlow(question):
 
 
 # question = "Background Story: : the student failed the exam, 3 times. Student Experieence: I can understand the topics generally but I can't understand the mathematical formulations, my biggest challenges for the course is to understand mathematical formulations"
-question = "What is the document about?"
-result = getResponseFromLangFlow(question)
+# question = "What is the document about?"
+# result = getResponseFromLangFlow(question)
 
-# print(type(result))
-print(result)
+# # # print(type(result))
+# print(result)

@@ -1,7 +1,17 @@
 import streamlit as st
+import vectara
 import langflow_output
 
 st.title("Question and Answer App")
+
+# File uploader
+st.write("Upload a file to add to the corpus:")
+uploaded_file = st.file_uploader("Choose a file", type=["pdf"])
+
+if uploaded_file is not None:
+    vectara.ResetCorpus()
+    vectara.AddFile(uploaded_file)
+    st.write("File uploaded successfully.")
 
 st.write("Ask a question and get an answer:")
 
@@ -13,5 +23,3 @@ if st.button("Get Answer"):
         st.write(answer)
     else:
         st.write("Please enter a question.")
-
-
