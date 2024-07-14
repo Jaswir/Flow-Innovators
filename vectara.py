@@ -2,8 +2,8 @@ import requests
 import json
 import streamlit as st
 
-customerID = "2333174360"
-corpusID = "4"
+customerID = st.secrets["VECTARA_CUSTOMER_ID"]
+corpusID = st.secrets["VECTARA_CORPUS_ID"]
 api_key = st.secrets["VECTARA_API_KEY"]
 
 # Step 1 Reset Corpus
